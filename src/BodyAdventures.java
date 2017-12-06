@@ -4,47 +4,49 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class BodyAdventures extends Application {
 
-        public static void main(String[] args) {
-            launch(args);
-        }
+    Scene scene;
+    Pane root;
+    Canvas canvas;
+    GraphicsContext graphicsContext;
 
-        Scene scene;
-        TabPane root;
-        Tab tab1, tab2;
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-        @Override
-        public void start(Stage stage) throws Exception {
-            stage.setTitle("Body Adventtures");
-            stage.setResizable(false);
-            root = new TabPane();
-            scene = new Scene(root, 800, 600);
-            stage.setScene(scene);
-            tab1 = new Tab();
-            tab1.setText("First Tab");
-            tab1.setClosable(false);
-            root.getTabs().add(tab1);
-            tab2 = new Tab();
-            tab2.setText("Second Tab");
-            tab2.setClosable(false);
-            root.getTabs().add(tab2);
-            // Added by me
-            stage.show();
-        }
+    @Override
+    public void start(Stage stage) throws Exception {
+        stage.setTitle("Body Adventtures");
+        stage.setResizable(false);
+        root = new Pane();
+        scene = new Scene(root, 1024, 768);
+        stage.setScene(scene);
+        stage.show();
 
 
-        public void addOrgans() {
-            Canvas canvas = new Canvas();
-            GraphicsContext graphicsContext = canvas.getGraphicsContext2D();
+        canvas = new Canvas(1024, 768);
+        graphicsContext = canvas.getGraphicsContext2D();
+        graphicsContext.setFill(Color.WHITE);
+        graphicsContext.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        root.getChildren().add(canvas);
 
-            Organ heart = new Organ.Builder(graphicsContext)
-                    .name("heart")
-                    .image("resource/heart.png")
-                    .description("pumps blood")
-                    .build();
-        }
+        Human human = new Human(graphicsContext);
+        human.update();
+    }
+
+
+    public void addOrgans() {
+
+        Organ heart = new Organ.Builder(graphicsContext)
+                .name("heart")
+                .image("resource/heart.png")
+                .description("pumps blood")
+                .build();
+    }
 }
 

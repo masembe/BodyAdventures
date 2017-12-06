@@ -1,9 +1,19 @@
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
-public class Human {
+import java.util.List;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+public class Human extends GameObject {
 
-	}
+    public List<Organ> organs;
 
+    public Human(GraphicsContext graphicsContext) {
+        super(graphicsContext, graphicsContext.getCanvas().getWidth() / 4, 0);
+        image = new Image(getClass().getResourceAsStream("resource/body.png"));
+    }
+
+    @Override
+    public void update() {
+        graphicsContext.drawImage(image, x, y, 542, 550);
+    }
 }
