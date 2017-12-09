@@ -2,11 +2,10 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import gameobjects.Human;
 
 public class BodyAdventures extends Application {
 
@@ -42,11 +41,6 @@ public class BodyAdventures extends Application {
 
     public void addOrgans() {
 
-        Organ heart = new Organ.Builder(graphicsContext)
-                .name("heart")
-                .image("resource/heart.png")
-                .description("pumps blood")
-                .build();
     }
 }
 

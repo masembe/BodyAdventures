@@ -1,3 +1,5 @@
+package gameobjects;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -5,10 +7,11 @@ public class Organ extends GameObject {
     private final String name;
     private final String description;
 
-    public Organ(GraphicsContext gc, Image image, String name, String description, double x, double y) {
+    private Organ(GraphicsContext gc, Image image, String name, String description, double x, double y) {
         super(gc, x, y);
         this.name = name;
         this.description = description;
+        this.image = image;
     }
 
 
@@ -25,13 +28,14 @@ public class Organ extends GameObject {
         private String description;
         private Image image;
         private GraphicsContext graphicsContext;
+        private int x, y;
 
         public Builder(GraphicsContext graphicsContext) {
             this.graphicsContext = graphicsContext;
         }
 
         public Builder image(String imagePath) {
-            image = new Image(Organ.class.getResource(imagePath).toExternalForm());
+            image = new Image(getClass().getResourceAsStream(String.format("../resource/%s", imagePath)));
             return this;
         }
 
@@ -45,9 +49,14 @@ public class Organ extends GameObject {
             return this;
         }
 
+        public Builder position(int x, int y) {
+            this.x = x;
+            this.y = y;
+            return this;
+        }
+
         public Organ build() {
-            // TODO: x, y positions
-            return new Organ(graphicsContext, image, name, description, 0, 0);
+            return new Organ(graphicsContext, image, name, description, x, y);
         }
 
     }
