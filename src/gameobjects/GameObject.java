@@ -7,12 +7,15 @@ public class GameObject {
 
     protected Image image;
     protected double x, y;
-    protected GraphicsContext graphicsContext;
+    protected static GraphicsContext graphicsContext;
 
-    protected GameObject(GraphicsContext graphicsContext, double x, double y) {
-        this.graphicsContext = graphicsContext;
+    protected GameObject(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public static void setGraphicsContext(GraphicsContext graphicsContext) {
+        GameObject.graphicsContext = graphicsContext;
     }
 
     public void update() {
