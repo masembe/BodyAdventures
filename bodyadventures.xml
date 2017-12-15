@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="bodyadventures" default="all">
+  
+  
+  <property file="bodyadventures.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module BodyAdventures -->
+  
+  <dirname property="module.bodyadventures.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.bodyadventures" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.bodyadventures" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.bodyadventures" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.bodyadventures" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="bodyadventures.output.dir" value="${module.bodyadventures.basedir}/bin"/>
+  <property name="bodyadventures.testoutput.dir" value="${module.bodyadventures.basedir}/bin"/>
+  
+  <path id="bodyadventures.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="bodyadventures.module.production.classpath">
+    <path refid="${module.jdk.classpath.bodyadventures}"/>
+  </path>
+  
+  <path id="bodyadventures.runtime.production.module.classpath">
+    <pathelement location="${bodyadventures.output.dir}"/>
+  </path>
+  
+  <path id="bodyadventures.module.classpath">
+    <path refid="${module.jdk.classpath.bodyadventures}"/>
+    <pathelement location="${bodyadventures.output.dir}"/>
+  </path>
+  
+  <path id="bodyadventures.runtime.module.classpath">
+    <pathelement location="${bodyadventures.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.bodyadventures">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.bodyadventures">
+    <patternset refid="excluded.from.module.bodyadventures"/>
+  </patternset>
+  
+  <path id="bodyadventures.module.sourcepath">
+    <dirset dir="${module.bodyadventures.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.bodyadventures" depends="compile.module.bodyadventures.production,compile.module.bodyadventures.tests" description="Compile module BodyAdventures"/>
+  
+  <target name="compile.module.bodyadventures.production" depends="register.custom.compilers" description="Compile module BodyAdventures; production classes">
+    <mkdir dir="${bodyadventures.output.dir}"/>
+    <javac2 destdir="${bodyadventures.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.bodyadventures}/javac">
+      <compilerarg line="${compiler.args.bodyadventures}"/>
+      <bootclasspath refid="bodyadventures.module.bootclasspath"/>
+      <classpath refid="bodyadventures.module.production.classpath"/>
+      <src refid="bodyadventures.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.bodyadventures"/>
+    </javac2>
+    
+    <copy todir="${bodyadventures.output.dir}">
+      <fileset dir="${module.bodyadventures.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.bodyadventures.tests" depends="register.custom.compilers,compile.module.bodyadventures.production" description="compile module BodyAdventures; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.bodyadventures" description="cleanup module">
+    <delete dir="${bodyadventures.output.dir}"/>
+    <delete dir="${bodyadventures.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.bodyadventures, clean.artifact.bodyadventures" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.bodyadventures" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.bodyadventures" value="${basedir}/out/artifacts/BodyAdventures"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="artifact.temp.output.BodyAdventures" value="${artifacts.temp.dir}/BodyAdventures.jar"/>
+    <taskdef resource="com/sun/javafx/tools/ant/antlib.xml" uri="javafx:com.sun.javafx.tools.ant" classpath="${jdk.home.1.8}/lib/ant-javafx.jar"/>
+  </target>
+  
+  <target name="clean.artifact.bodyadventures" description="clean BodyAdventures artifact output">
+    <delete dir="${artifact.output.bodyadventures}"/>
+  </target>
+  
+  <target name="artifact.bodyadventures" depends="init.artifacts, compile.module.bodyadventures" description="Build &#39;BodyAdventures&#39; artifact" xmlns:fx="javafx:com.sun.javafx.tools.ant">
+    <mkdir dir="${artifact.output.bodyadventures}"/>
+    <copy todir="${artifact.temp.output.BodyAdventures}">
+      <fileset dir="${bodyadventures.output.dir}"/>
+    </copy>
+    <fx:fileset id="all_but_BodyAdventures" dir="${artifact.temp.output.BodyAdventures}" includes="**/*.jar">
+      <exclude name="BodyAdventures.jar"/>
+    </fx:fileset>
+    <fx:fileset id="all_BodyAdventures" dir="${artifact.temp.output.BodyAdventures}" includes="**/*.jar"/>
+    <fx:application id="BodyAdventures_id" name="BodyAdventures" mainClass="null"/>
+    <fx:jar destfile="${artifact.temp.output.BodyAdventures}/BodyAdventures.jar">
+      <fx:application refid="BodyAdventures_id"/>
+      <fileset dir="${artifact.temp.output.BodyAdventures}" excludes="**/*.jar"/>
+      <fx:resources>
+        <fx:fileset refid="all_but_BodyAdventures"/>
+      </fx:resources>
+    </fx:jar>
+    <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.BodyAdventures}/deploy" outfile="BodyAdventures">
+      <fx:application refid="BodyAdventures_id"/>
+      <fx:resources>
+        <fx:fileset refid="all_BodyAdventures"/>
+      </fx:resources>
+    </fx:deploy>
+    <copy todir="${artifact.output.bodyadventures}">
+      <fileset dir="${artifact.temp.output.BodyAdventures}/deploy"/>
+    </copy>
+    <delete includeemptydirs="true">
+      <fileset dir="${artifact.temp.output.BodyAdventures}"/>
+    </delete>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.bodyadventures" description="Build all artifacts">
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

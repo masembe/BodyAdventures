@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="BodyAdventures">
+    <output-path>$PROJECT_DIR$/out/artifacts/BodyAdventures</output-path>
+    <root id="root">
+      <element id="archive" name="BodyAdventures.jar">
+        <element id="module-output" name="BodyAdventures" />
+      </element>
+    </root>
+  </artifact>
+</component>

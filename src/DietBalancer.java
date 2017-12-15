@@ -77,10 +77,10 @@ public class DietBalancer extends Application {
         player.healthProperty().addListener(l -> {
 
             if (player.getHealth() == 0){
-                playing = false;
+               playing = false;
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, String.format("Game Over !!!!!!!! Your final score was %d",player.getPoints()));
 //                alert.showAndWait().ifPresent(r -> System.exit(0));
-                alert.show();
+               alert.show();
             }
         });
 
@@ -94,7 +94,7 @@ public class DietBalancer extends Application {
             public void handle(long l) {
                 redrawBackground();
                 Iterator<FallingFood> it = food.iterator();
-                while (it.hasNext()) {
+                while (it.hasNext() && playing == true) {
                     FallingFood f = it.next();
                     f.fall();
                     if (player.intersects(f)) {
