@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d077ac-be2f-4da0-8a38-0865a9611745" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resource/body.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resource/brain.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resource/heart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resource/liver.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/resource/stomach.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/BodyAdventures.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gameobjects/Carbohydrates.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gameobjects/Fats.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/gameobjects/Proteins.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/body.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/brain.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/heart.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/kidney.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/liver.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/lungs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resource/stomach.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/FallingFood.java" afterPath="$PROJECT_DIR$/src/gameobjects/FallingFood.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Player.java" afterPath="$PROJECT_DIR$/src/gameobjects/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DietBalancer.java" afterPath="$PROJECT_DIR$/src/DietBalancer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,8 +17,8 @@
       <file leaf-file-name="DietBalancer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DietBalancer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state relative-caret-position="544">
+              <caret line="105" column="84" lean-forward="true" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#895#896#0" expanded="true" />
@@ -358,12 +340,12 @@
       <workItem from="1512825764881" duration="3033000" />
       <workItem from="1512903793667" duration="5001000" />
       <workItem from="1513105895594" duration="7279000" />
-      <workItem from="1513356825758" duration="3423000" />
+      <workItem from="1513356825758" duration="4710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23354000" />
+    <option name="totallyTimeSpent" value="24641000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -539,8 +521,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DietBalancer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="544">
+          <caret line="105" column="84" lean-forward="true" selection-start-line="105" selection-start-column="84" selection-end-line="105" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#895#896#0" expanded="true" />

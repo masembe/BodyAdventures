@@ -88,6 +88,7 @@ public class DietBalancer extends Application {
                 food.forEach(GameObject::update);
                 player.update();
                 drawScore();
+                drawHealth();
             }
         };
 
@@ -98,6 +99,11 @@ public class DietBalancer extends Application {
     private void drawScore() {
         graphicsContext.setFill(Color.BLACK);
         graphicsContext.fillText(Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 100), (WINDOW_HEIGHT - 50));
+    }
+
+    private  void drawHealth() {
+        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.fillText(Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
     }
 
     private void redrawBackground() {
