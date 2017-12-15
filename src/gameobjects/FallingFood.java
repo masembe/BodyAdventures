@@ -24,7 +24,8 @@ public class FallingFood extends GameObject {
     }
 
     public void fall() {
-        rectangle.setY(y++);
+        y +=3;
+        rectangle.setY(y);
     }
 
 

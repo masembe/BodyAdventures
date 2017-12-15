@@ -98,12 +98,12 @@ public class DietBalancer extends Application {
 
     private void drawScore() {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText(Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 100), (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Current Score: "+Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 100), (WINDOW_HEIGHT - 50));
     }
 
     private  void drawHealth() {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText(Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Number of lives: "+Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
     }
 
     private void redrawBackground() {
