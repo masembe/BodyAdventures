@@ -4,9 +4,9 @@ import java.util.Random;
 
 public enum FoodGroup {
 
-    CARBOHYDRATES("carbohydrates.png"),
-    PROTEIN("protein.png"),
-    FATS("fats.png");
+    CARBOHYDRATES("carbohydrates.png",  "pasta.png" ,"rice.png"),
+    PROTEIN("protein.png","fish.png","peas.png"),
+    FATS("fats.png","burger.png","icecream.png");
 
     private static final Random random = new Random();
     private final String[] images;

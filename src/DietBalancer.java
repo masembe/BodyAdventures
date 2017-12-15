@@ -17,11 +17,15 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class DietBalancer extends Application {
 
     static final int WINDOW_WIDTH = 1024;
     static final int WINDOW_HEIGHT = 768;
+    private static final Executor executor = Executors.newSingleThreadExecutor();
+    private boolean playing = false;
     Stage stage;
     Scene scene;
     Pane root;
@@ -58,13 +62,10 @@ public class DietBalancer extends Application {
         GameObject.setGraphicsContext(graphicsContext);
         root.getChildren().add(canvas);
         redrawBackground();
-
+        playing = true;
+        
         food = new ArrayList<>();
-
-
-        food.add(new FallingFood(FoodGroup.CARBOHYDRATES));
-        food.add(new FallingFood(FoodGroup.PROTEIN));
-        food.add(new FallingFood(FoodGroup.FATS));
+        executor.execute(this::spawnFood);
 
 
         Player player = Player.getInstance();
@@ -114,6 +115,16 @@ public class DietBalancer extends Application {
        // graphicsContext.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
     	graphicsContext.drawImage(background ,0,0, canvas.getWidth(), canvas.getHeight());
 
+    }
+
+    private void spawnFood() {
+        while (playing)
+        try {
+            Thread.sleep(1000);
+            food.add(new FallingFood(FoodGroup.CARBOHYDRATES));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
