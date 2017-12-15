@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -22,7 +23,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class DietBalancer extends Application {
-    static final Random random = new Random();
+
     static final int WINDOW_WIDTH = 1024;
     static final int WINDOW_HEIGHT = 768;
     private static final Executor executor = Executors.newSingleThreadExecutor();
@@ -65,13 +66,24 @@ public class DietBalancer extends Application {
         root.getChildren().add(canvas);
         redrawBackground();
         playing = true;
-        selected = FoodGroup.CARBOHYDRATES;
+        selected = FoodGroup.getRandom();
 
         food = new ArrayList<>();
         executor.execute(this::spawnFood);
 
 
         Player player = Player.getInstance();
+
+        player.healthProperty().addListener(l -> {
+
+            if (player.getHealth() == 0){
+                playing = false;
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, String.format("Game Over !!!!!!!! Your final score was %d",player.getPoints()));
+//                alert.showAndWait().ifPresent(r -> System.exit(0));
+                alert.show();
+            }
+        });
+
 
         canvas.setOnMouseMoved(mouseEvent -> {
             player.move(mouseEvent.getSceneX());
@@ -89,6 +101,10 @@ public class DietBalancer extends Application {
                         if (f.getFoodGroup() == selected) {
                             System.err.println("Got it");
                             player.addPoints(50);
+                            if(player.getPoints()%250== 0)
+                            {
+                                selected = FoodGroup.getRandom();
+                            }
                         }else {
                             System.err.println("Lose life");
                             player.loseHealth();
@@ -98,8 +114,7 @@ public class DietBalancer extends Application {
                 }
                 food.forEach(GameObject::update);
                 player.update();
-                drawScore();
-                drawHealth();
+                drawText();
             }
         };
 
@@ -107,15 +122,13 @@ public class DietBalancer extends Application {
 
     }
 
-    private void drawScore() {
+    private void drawText() {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText("Score: "+Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 150), (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Score: " + Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 150), (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Lives: " + Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Which foods are: " + selected,100, 100);
     }
 
-    private  void drawHealth() {
-        graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText("Lives: "+Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
-    }
 
     private void redrawBackground() {
        Image background = new Image(DietBalancer.class.getResourceAsStream("resource/background.png"));
@@ -126,15 +139,15 @@ public class DietBalancer extends Application {
     }
 
     private void spawnFood() {
-        FoodGroup[] foodGroups = FoodGroup.values();
         while (playing)
         try {
             Thread.sleep(1000);
-            food.add(FoodFactory.createFood( foodGroups[random.nextInt(foodGroups.length)]));
+            food.add(FoodFactory.createFood( FoodGroup.getRandom()));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
 
 }
 

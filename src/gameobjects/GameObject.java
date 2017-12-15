@@ -20,6 +20,6 @@ public class GameObject {
 
     public void update() {
         if (image != null)
-            graphicsContext.drawImage(image, x, y, 30, 30);
+            graphicsContext.drawImage(image, x, y, 50, 50);
     }
 }

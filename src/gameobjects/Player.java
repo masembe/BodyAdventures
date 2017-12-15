@@ -1,5 +1,7 @@
 package gameobjects;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 
@@ -8,15 +10,15 @@ public class Player extends GameObject {
     private final Rectangle rectangle;
     private static Player instance = null;
     private int points;
-    private int health;
+    private IntegerProperty health;
 
     private Player() {
         super((graphicsContext.getCanvas().getWidth() / 2), (graphicsContext.getCanvas().getHeight() ));
         image = new Image(getClass().getResourceAsStream("../resource/boy.png"));
-        y -= 30;
-        rectangle = new Rectangle(x, y, 30, 30);
+        y -= 50;
+        rectangle = new Rectangle(x, y, 50, 50);
         points = 0;
-        health = 3;
+        health = new SimpleIntegerProperty(3);
     }
 
     public static Player getInstance() {
@@ -36,12 +38,16 @@ public class Player extends GameObject {
         rectangle.setX(x);
     }
 
-    public int loseHealth() {
-        return --health;
+    public void loseHealth() {
+        health.set(health.get()-1);
+    }
+
+    public IntegerProperty healthProperty() {
+        return health;
     }
 
     public int getHealth() {
-        return health;
+        return health.get();
     }
 
     public int addPoints(int points) {

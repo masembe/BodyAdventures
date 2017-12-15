@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33d077ac-be2f-4da0-8a38-0865a9611745" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FoodFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DietBalancer.java" afterPath="$PROJECT_DIR$/src/DietBalancer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/FallingFood.java" afterPath="$PROJECT_DIR$/src/gameobjects/FallingFood.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/FoodGroup.java" afterPath="$PROJECT_DIR$/src/gameobjects/FoodGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/GameObject.java" afterPath="$PROJECT_DIR$/src/gameobjects/GameObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gameobjects/Player.java" afterPath="$PROJECT_DIR$/src/gameobjects/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +20,21 @@
       <file leaf-file-name="DietBalancer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DietBalancer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="112" column="5" lean-forward="true" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
+            <state relative-caret-position="272">
+              <caret line="82" column="29" lean-forward="false" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gameobjects/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="22" column="56" lean-forward="false" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -34,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/FoodFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="19" column="92" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="92" />
+              <caret line="19" column="92" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,15 +54,16 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameobjects/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="27" />
+            <state relative-caret-position="459">
+              <caret line="50" column="4" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
               <folding>
-                <element signature="e#997#998#0" expanded="true" />
-                <element signature="e#1028#1029#0" expanded="true" />
-                <element signature="e#1058#1059#0" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1217#1218#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
+                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
+                <element signature="e#1224#1225#0" expanded="true" />
+                <element signature="e#1253#1254#0" expanded="true" />
+                <element signature="e#1283#1284#0" expanded="true" />
+                <element signature="e#1448#1449#0" expanded="true" />
+                <element signature="e#1477#1478#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +72,8 @@
       <file leaf-file-name="FallingFood.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameobjects/FallingFood.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="85">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#755#756#0" expanded="true" />
                 <element signature="e#787#788#0" expanded="true" />
@@ -75,9 +85,12 @@
       <file leaf-file-name="FoodGroup.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameobjects/FoodGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="12" column="57" lean-forward="false" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+              <folding>
+                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#266#267#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,15 +132,15 @@
         <option value="$PROJECT_DIR$/src/gameobjects/Organ.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/Human.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/Fats.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/GameObject.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/Proteins.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/Carbohydrates.java" />
         <option value="$PROJECT_DIR$/src/BodyAdventures.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/FoodGroups.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/Player.java" />
-        <option value="$PROJECT_DIR$/src/gameobjects/FoodGroup.java" />
         <option value="$PROJECT_DIR$/src/FoodFactory.java" />
         <option value="$PROJECT_DIR$/src/gameobjects/FallingFood.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/FoodGroup.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/gameobjects/Player.java" />
         <option value="$PROJECT_DIR$/src/DietBalancer.java" />
       </list>
     </option>
@@ -357,12 +370,12 @@
       <workItem from="1512825764881" duration="3033000" />
       <workItem from="1512903793667" duration="5001000" />
       <workItem from="1513105895594" duration="7279000" />
-      <workItem from="1513356825758" duration="13784000" />
+      <workItem from="1513356825758" duration="16137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33715000" />
+    <option name="totallyTimeSpent" value="36068000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -471,7 +484,6 @@
     <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/ext/jfxrt.jar!/javafx/scene/image/Image.class" />
     <entry file="file://$PROJECT_DIR$/src/gameobjects/Organ.java" />
     <entry file="file://$PROJECT_DIR$/src/gameobjects/Human.java" />
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/GameObject.java" />
     <entry file="file://$PROJECT_DIR$/src/BodyAdventures.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -497,18 +509,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/FoodGroup.java">
+    <entry file="file://$PROJECT_DIR$/src/FoodFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="144">
+          <caret line="19" column="92" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameobjects/FallingFood.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="24" />
+        <state relative-caret-position="85">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#755#756#0" expanded="true" />
             <element signature="e#787#788#0" expanded="true" />
@@ -516,35 +530,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gameobjects/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/FoodGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="27" />
+        <state relative-caret-position="204">
+          <caret line="12" column="57" lean-forward="false" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
           <folding>
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1028#1029#0" expanded="true" />
-            <element signature="e#1058#1059#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1217#1218#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#266#267#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FoodFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="19" column="92" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="92" />
+        <state relative-caret-position="459">
+          <caret line="50" column="4" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+            <element signature="e#1253#1254#0" expanded="true" />
+            <element signature="e#1283#1284#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="e#1477#1478#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameobjects/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="56" lean-forward="false" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DietBalancer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="112" column="5" lean-forward="true" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
+        <state relative-caret-position="272">
+          <caret line="82" column="29" lean-forward="false" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
