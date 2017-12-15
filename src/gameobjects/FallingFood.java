@@ -11,11 +11,10 @@ public class FallingFood extends GameObject {
     private Rectangle rectangle;
     private FoodGroup foodGroup;
 
-    public FallingFood(FoodGroup foodGroup) {
+    public FallingFood(Image image, FoodGroup foodGroup) {
         super(random.nextInt((int) graphicsContext.getCanvas().getWidth()), 0);
         this.foodGroup = foodGroup;
-        //Formats the pathname of the various falling food images
-        this.image = new Image(getClass().getResourceAsStream(String.format("../resource/%s", foodGroup.getImageName())));
+        this.image = image;
         rectangle = new Rectangle(x, y, 30, 30);
     }
 	
@@ -30,4 +29,7 @@ public class FallingFood extends GameObject {
     }
 
 
+    public FoodGroup getFoodGroup() {
+        return foodGroup;
+    }
 }

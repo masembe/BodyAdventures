@@ -17,15 +17,17 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class DietBalancer extends Application {
-
+    static final Random random = new Random();
     static final int WINDOW_WIDTH = 1024;
     static final int WINDOW_HEIGHT = 768;
     private static final Executor executor = Executors.newSingleThreadExecutor();
     private boolean playing = false;
+    private FoodGroup selected;
     Stage stage;
     Scene scene;
     Pane root;
@@ -63,7 +65,8 @@ public class DietBalancer extends Application {
         root.getChildren().add(canvas);
         redrawBackground();
         playing = true;
-        
+        selected = FoodGroup.CARBOHYDRATES;
+
         food = new ArrayList<>();
         executor.execute(this::spawnFood);
 
@@ -83,9 +86,14 @@ public class DietBalancer extends Application {
                     FallingFood f = it.next();
                     f.fall();
                     if (player.intersects(f)) {
-                        System.err.println("Got it");
-                        player.addPoints(50);
-                        it.remove();
+                        if (f.getFoodGroup() == selected) {
+                            System.err.println("Got it");
+                            player.addPoints(50);
+                        }else {
+                            System.err.println("Lose life");
+                            player.loseHealth();
+                        }
+                       it.remove();
                     }
                 }
                 food.forEach(GameObject::update);
@@ -118,10 +126,11 @@ public class DietBalancer extends Application {
     }
 
     private void spawnFood() {
+        FoodGroup[] foodGroups = FoodGroup.values();
         while (playing)
         try {
             Thread.sleep(1000);
-            food.add(new FallingFood(FoodGroup.CARBOHYDRATES));
+            food.add(FoodFactory.createFood( foodGroups[random.nextInt(foodGroups.length)]));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
