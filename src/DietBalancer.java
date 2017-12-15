@@ -63,6 +63,8 @@ public class DietBalancer extends Application {
 
 
         food.add(new FallingFood(FoodGroup.CARBOHYDRATES));
+        food.add(new FallingFood(FoodGroup.PROTEIN));
+        food.add(new FallingFood(FoodGroup.FATS));
 
 
         Player player = Player.getInstance();
@@ -98,12 +100,12 @@ public class DietBalancer extends Application {
 
     private void drawScore() {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText("Current Score: "+Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 100), (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Score: "+Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 150), (WINDOW_HEIGHT - 50));
     }
 
     private  void drawHealth() {
         graphicsContext.setFill(Color.BLACK);
-        graphicsContext.fillText("Number of lives: "+Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
+        graphicsContext.fillText("Lives: "+Integer.toString(Player.getInstance().getHealth()),100, (WINDOW_HEIGHT - 50));
     }
 
     private void redrawBackground() {
