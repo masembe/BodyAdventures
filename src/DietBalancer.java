@@ -1,5 +1,5 @@
 import gameobjects.FallingFood;
-import gameobjects.Fats;
+import gameobjects.FoodGroup;
 import gameobjects.GameObject;
 import gameobjects.Player;
 import javafx.animation.AnimationTimer;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class BodyAdventures extends Application {
+public class DietBalancer extends Application {
 
     static final int WINDOW_WIDTH = 1024;
     static final int WINDOW_HEIGHT = 768;
@@ -36,7 +36,7 @@ public class BodyAdventures extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
-        stage.setTitle("Body Adventtures");
+        stage.setTitle("Diet balancer");
         stage.setResizable(false);
         root = new Pane();
         scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -61,7 +61,9 @@ public class BodyAdventures extends Application {
 
         food = new ArrayList<>();
 
-        food.add(new Fats(new Image(getClass().getResourceAsStream("resource/brain.png"))));
+
+        food.add(new FallingFood(FoodGroup.CARBOHYDRATES));
+
 
         Player player = Player.getInstance();
 
@@ -79,12 +81,13 @@ public class BodyAdventures extends Application {
                     f.fall();
                     if (player.intersects(f)) {
                         System.err.println("Got it");
+                        player.addPoints(50);
                         it.remove();
                     }
                 }
-
                 food.forEach(GameObject::update);
                 player.update();
+                drawScore();
             }
         };
 
@@ -92,9 +95,17 @@ public class BodyAdventures extends Application {
 
     }
 
+    private void drawScore() {
+        graphicsContext.setFill(Color.BLACK);
+        graphicsContext.fillText(Integer.toString(Player.getInstance().getPoints()), (WINDOW_WIDTH - 100), (WINDOW_HEIGHT - 50));
+    }
+
     private void redrawBackground() {
-        graphicsContext.setFill(Color.WHITE);
-        graphicsContext.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+       Image background = new Image(DietBalancer.class.getResourceAsStream("resource/background.png"));
+		// graphicsContext.setFill(Color.WHITE);
+       // graphicsContext.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+    	graphicsContext.drawImage(background ,0,0, canvas.getWidth(), canvas.getHeight());
+
     }
 
 }
